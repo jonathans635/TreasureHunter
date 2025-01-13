@@ -191,4 +191,8 @@ public class Hunter {
         }
         return -1;
     }
+
+    public void setKit(String[] newKit){
+        kit=newKit;
+    }
 }
