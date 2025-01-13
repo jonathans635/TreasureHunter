@@ -21,7 +21,7 @@ public class Terrain {
 
     // accessors
     public String getTerrainName() {
-        return Colors.CYAN + terrainName;
+        return Colors.CYAN + terrainName +Colors.RESET;
     }
 
     public String getNeededItem() {
