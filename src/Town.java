@@ -166,10 +166,10 @@ public class Town {
         treasure=options[(int)(Math.random()*4)];
     }
 
-    private void searchTown(){
+    public void searchTown(){
         if (!searched) {
             System.out.println("You found " + treasure);
-            if (!Objects.equals(treasure, "dust"))
+            if (!treasure.equals("dust"))
                 hunter.addItem(treasure);
             treasure = "";
             searched = true;
