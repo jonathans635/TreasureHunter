@@ -194,4 +194,8 @@ public class Hunter {
     }
 
     public int getGold(){return gold;}
+
+    public boolean checkWin(){
+        return findItemInKit("crown") != -1 && findItemInKit("trophy") != -1 && findItemInKit("gem") != -1;
+    }
 }

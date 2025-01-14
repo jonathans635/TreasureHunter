@@ -173,6 +173,10 @@ public class Town {
                 hunter.addItem(treasure);
             treasure = "";
             searched = true;
+            if (hunter.checkWin()){
+                System.out.println("Congratulations, you have found all three treasures.\n" +
+                        "You win!");
+            }
         }
         else System.out.println("You have already searched this town.");
     }
