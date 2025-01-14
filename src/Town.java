@@ -176,6 +176,7 @@ public class Town {
             if (hunter.checkWin()){
                 System.out.println("Congratulations, you have found all three treasures.\n" +
                         "You win!");
+                System.exit(0);
             }
         }
         else System.out.println("You have already searched this town.");
