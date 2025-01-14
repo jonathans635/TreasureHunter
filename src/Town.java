@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 /**
  * The Town Class is where it all happens.
  * The Town is designed to manage all the things a Hunter can do in town.
@@ -72,7 +70,7 @@ public class Town {
             printMessage = "You used your " + item + " to cross the " + terrain.getTerrainName() + ".";
             if (checkItemBreak()) {
                 hunter.removeItemFromKit(item);
-                printMessage += "\nUnfortunately, your " + item + " broke.";
+                printMessage += "\nUnfortunately, you lost your " + item;
             }
             return true;
         }
@@ -124,6 +122,7 @@ public class Town {
                 }
             }
         }
+        System.out.println(Colors.RESET);
     }
 
     public String infoString() {
@@ -137,16 +136,18 @@ public class Town {
      */
     private Terrain getNewTerrain() {
         double rnd = Math.random();
-        if (rnd < .2) {
+        if (rnd < .17) {
             return new Terrain("Mountains", "Rope");
-        } else if (rnd < .4) {
+        } else if (rnd < .34) {
             return new Terrain("Ocean", "Boat");
-        } else if (rnd < .6) {
+        } else if (rnd < .51) {
             return new Terrain("Plains", "Horse");
-        } else if (rnd < .8) {
+        } else if (rnd < .68) {
             return new Terrain("Desert", "Water");
-        } else {
+        } else if (rnd < 0.85){
             return new Terrain("Jungle", "Machete");
+        } else{
+            return new Terrain("Marsh", "Boots");
         }
     }
 
