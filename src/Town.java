@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * The Town Class is where it all happens.
  * The Town is designed to manage all the things a Hunter can do in town.
@@ -11,6 +13,8 @@ public class Town {
     private Terrain terrain;
     private String printMessage;
     private boolean toughTown;
+    private String treasure;
+    private boolean searched;
 
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
@@ -45,6 +49,8 @@ public class Town {
      * @param hunter The arriving Hunter.
      */
     public void hunterArrives(Hunter hunter) {
+        treasureAssign();
+        searched=false;
         this.hunter = hunter;
         printMessage = "Welcome to town, " + hunter.getHunterName() + ".";
         if (toughTown) {
@@ -152,5 +158,21 @@ public class Town {
     private boolean checkItemBreak() {
         double rand = Math.random();
         return (rand < 0.5);
+    }
+
+    private void treasureAssign(){
+        String[] options={"crown", "trophy", "gem", "gust"};
+        treasure=options[(int)(Math.random()*4)];
+    }
+
+    private void searchTown(){
+        if (!searched) {
+            System.out.println("You found " + treasure);
+            if (!Objects.equals(treasure, "dust"))
+                hunter.addItem(treasure);
+            treasure = "";
+            searched = true;
+        }
+        else System.out.println("You have already searched this town.");
     }
 }
