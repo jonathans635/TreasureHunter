@@ -13,7 +13,7 @@ public class Town {
     private boolean toughTown;
     private String treasure;
     private boolean searched;
-    private boolean dug;
+    private boolean dug = false;
 
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
@@ -189,7 +189,7 @@ public class Town {
 
     public void digForGold()
     {
-        dug = !TreasureHunter.leaveTown;
+        dug = TreasureHunter.leaveTown;
         if(!hunter.hasItemInKit("shovel"))
         {
             System.out.println("You can't dig for gold without a shovel");
