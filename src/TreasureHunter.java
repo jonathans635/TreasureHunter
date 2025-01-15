@@ -17,6 +17,7 @@ public class TreasureHunter {
     private Hunter hunter;
     private boolean hardMode;
     public static boolean easyMode;
+    public static boolean leaveTown;
 
     /**
      * Constructs the Treasure Hunter game.
@@ -141,6 +142,7 @@ public class TreasureHunter {
             System.out.println(currentTown.getTerrain().infoString());
         } else if (choice.equals("m")) {
             if (currentTown.leaveTown()) {
+                leaveTown=true;
                 // This town is going away so print its news ahead of time.
                 System.out.println(currentTown.getLatestNews());
                 enterTown();
