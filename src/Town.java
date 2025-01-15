@@ -170,7 +170,7 @@ public class Town {
         if (!searched) {
             System.out.println("You found " + treasure);
             if (!treasure.equals("dust"))
-                hunter.addItem(treasure);
+                hunter.addTreasure(treasure);
             treasure = "";
             searched = true;
             if (hunter.checkWin()){

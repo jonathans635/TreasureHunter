@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Hunter Class<br /><br />
  * This class represents the treasure hunter character (the player) in the Treasure Hunt game.
@@ -9,6 +11,7 @@ public class Hunter {
     private String hunterName;
     private String[] kit;
     private int gold;
+    private String[] treasures= {"", "", ""};
 
     /**
      * The base constructor of a Hunter assigns the name to the hunter and an empty kit.
@@ -130,6 +133,11 @@ public class Hunter {
                 printableKit += Colors.PURPLE + item + Colors.RESET + space;
             }
         }
+        printableKit+="\n";
+        printableKit+="treasures: ";
+        for (String x:treasures){
+            printableKit+= Colors.PURPLE+x+Colors.RESET+" ";
+        }
         return printableKit;
     }
 
@@ -197,5 +205,16 @@ public class Hunter {
 
     public boolean checkWin(){
         return findItemInKit("crown") != -1 && findItemInKit("trophy") != -1 && findItemInKit("gem") != -1;
+    }
+
+    public void addTreasure(String treasure){
+        if (!Arrays.deepToString(treasures).contains(treasure)) {
+            for (int i = 0; i < treasures.length; i++) {
+                if (treasures[i].isEmpty()) {
+                    treasures[i] = treasure;
+                    break;
+                }
+            }
+        }
     }
 }
