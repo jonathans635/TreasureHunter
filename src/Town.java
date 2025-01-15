@@ -189,6 +189,7 @@ public class Town {
 
     public void digForGold()
     {
+        dug = !TreasureHunter.leaveTown;
         if(!hunter.hasItemInKit("shovel"))
         {
             System.out.println("You can't dig for gold without a shovel");
