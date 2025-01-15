@@ -157,6 +157,10 @@ public class Town {
      * @return true if the item broke.
      */
     private boolean checkItemBreak() {
+        if(TreasureHunter.easyMode)
+        {
+            return false;
+        }
         double rand = Math.random();
         return (rand < 0.5);
     }
