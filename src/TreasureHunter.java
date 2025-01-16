@@ -17,7 +17,7 @@ public class TreasureHunter {
     private Hunter hunter;
     private boolean hardMode;
     public static boolean easyMode;
-    public static boolean leaveTown;
+    public static boolean leaveTown = false;
 
     /**
      * Constructs the Treasure Hunter game.
