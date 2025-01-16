@@ -96,6 +96,7 @@ public class Town {
      */
     public void lookForTrouble() {
         double noTroubleChance;
+        System.out.print(Colors.RED);
         if (toughTown) {
             noTroubleChance = 0.66;
         } else {
@@ -104,12 +105,10 @@ public class Town {
         if (Math.random() > noTroubleChance) {
             printMessage = "You couldn't find any trouble";
         } else {
-            System.out.print(Colors.RED);
             printMessage = "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n";
             int goldDiff = (int) (Math.random() * 10) + 1;
             if (Math.random() > noTroubleChance) {
                 printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
-                System.out.print(Colors.RESET);
                 printMessage += "\nYou won the brawl and receive " + Colors.YELLOW + goldDiff + Colors.RESET + " gold.";
                 hunter.changeGold(goldDiff);
             } else {
@@ -189,7 +188,6 @@ public class Town {
 
     public void digForGold()
     {
-        dug = TreasureHunter.leaveTown;
         if(!hunter.hasItemInKit("shovel"))
         {
             System.out.println("You can't dig for gold without a shovel");
@@ -198,7 +196,7 @@ public class Town {
         {
             System.out.println("You have already dug in this town.");
         }
-        if (hunter.hasItemInKit("shovel") && !dug) {
+        if (hunter.hasItemInKit("shovel") && !dug || TreasureHunter.leaveTown) {
             int chance = (int) (Math.random() * 2);
                 if (chance == 1) {
                     int changeAmt = (int) (Math.random() * 20) + 1;
@@ -208,6 +206,7 @@ public class Town {
                     System.out.println("You dug but only found dirt.");
                 }
                 dug = true;
+                TreasureHunter.leaveTown = false;
         }
     }
 }
