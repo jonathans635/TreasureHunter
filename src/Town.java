@@ -190,7 +190,6 @@ public class Town {
         }
         else System.out.println("You have already searched this town.");
     }
-
     public void digForGold()
     {
         if(!hunter.hasItemInKit("shovel"))
