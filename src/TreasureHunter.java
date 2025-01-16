@@ -142,10 +142,10 @@ public class TreasureHunter {
             System.out.println(currentTown.getTerrain().infoString());
         } else if (choice.equals("m")) {
             if (currentTown.leaveTown()) {
-                leaveTown=true;
                 // This town is going away so print its news ahead of time.
                 System.out.println(currentTown.getLatestNews());
                 enterTown();
+                leaveTown=true;
             }
         } else if (choice.equals("l")) {
             currentTown.lookForTrouble();
