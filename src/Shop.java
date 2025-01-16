@@ -15,6 +15,7 @@ public class Shop {
     private static final int BOAT_COST = 20;
     private static final int BOOTS_COST = 15;
     private static final int SHOVEL_COST = 8;
+    private static final int SWORD_COST=0;
 
     // static variables
     private static final Scanner SCANNER = new Scanner(System.in);
@@ -49,7 +50,15 @@ public class Shop {
             System.out.print("What're you lookin' to buy? ");
             String item = SCANNER.nextLine().toLowerCase();
             int cost = checkMarketPrice(item, true);
-            if (cost == 0) {
+            if (customer.hasItemInKit("sword")&&customer.getGold()<cost){
+                System.out.println("Well, you don't have the gold, but I can ignore that requirement. Here, take the "+item+". May it serve you well.");
+                customer.buyItem(item, 0);
+            } else if (item.equals("sword")&&TreasureHunter.secretMode) {
+                System.out.println("Would you like the sword?");
+                String option = SCANNER.nextLine().toLowerCase();
+                if (option.equals("y"))
+                    buyItem(item);
+            } else if (cost == 0) {
                 System.out.println("We ain't got none of those.");
             } else {
                 System.out.print("It'll cost you " + cost + " gold. Buy it (y/n)? ");
@@ -89,6 +98,8 @@ public class Shop {
         str += "Horse: " + HORSE_COST + " gold\n";
         str += "Boat: " + BOAT_COST + " gold\n";
         str+= "Boots: " + BOOTS_COST + " gold\n";
+        if (TreasureHunter.secretMode)
+            str+="Sword: " + SWORD_COST + " gold\n";
         return str;
     }
 

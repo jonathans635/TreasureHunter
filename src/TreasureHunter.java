@@ -17,7 +17,7 @@ public class TreasureHunter {
     private Hunter hunter;
     private boolean hardMode;
     public static boolean easyMode;
-    public static boolean leaveTown = false;
+    public static boolean leaveTown;
 
     /**
      * Constructs the Treasure Hunter game.
@@ -57,7 +57,7 @@ public class TreasureHunter {
         }
         if (hard.equals("test")){
             hunter.changeGold(80);
-            String[] testKit={"water", "rope", "machete", "horse", "boat", "boots", "sword", "shovel"};
+            String[] testKit={"water", "rope", "machete", "horse", "boat"};
             hunter.setKit(testKit);
         }
         if(hard.equals("e"))
@@ -142,10 +142,10 @@ public class TreasureHunter {
             System.out.println(currentTown.getTerrain().infoString());
         } else if (choice.equals("m")) {
             if (currentTown.leaveTown()) {
+                leaveTown=true;
                 // This town is going away so print its news ahead of time.
                 System.out.println(currentTown.getLatestNews());
                 enterTown();
-                leaveTown=true;
             }
         } else if (choice.equals("l")) {
             currentTown.lookForTrouble();
