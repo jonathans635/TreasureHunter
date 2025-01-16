@@ -52,7 +52,7 @@ public class Shop {
             int cost = checkMarketPrice(item, true);
             if (customer.hasItemInKit("sword")&&customer.getGold()<cost){
                 System.out.println("Well, you don't have the gold, but I can ignore that requirement. Here, take the "+item+". May it serve you well.");
-                customer.buyItem(item, 0);
+                customer.addItem(item);
             } else if (item.equals("sword")&&TreasureHunter.secretMode) {
                 System.out.println("Would you like the sword?");
                 String option = SCANNER.nextLine().toLowerCase();

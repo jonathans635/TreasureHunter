@@ -66,6 +66,9 @@ public class TreasureHunter {
             hunter.changeGold(20);
             easyMode=true;
         }
+        if (hard.equals("s")){
+            secretMode=true;
+        }
     }
 
     /**
