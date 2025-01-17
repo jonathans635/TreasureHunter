@@ -58,7 +58,7 @@ public class TreasureHunter {
         }
         if (hard.equals("test")){
             hunter.changeGold(80);
-            String[] testKit={"water", "rope", "machete", "horse", "boat"};
+            String[] testKit={"water", "rope", "machete", "horse", "boat","shovel","boots"};
             hunter.setKit(testKit);
         }
         if(hard.equals("e"))
