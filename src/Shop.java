@@ -50,8 +50,8 @@ public class Shop {
             System.out.print("What're you lookin' to buy? ");
             String item = SCANNER.nextLine().toLowerCase();
             int cost = checkMarketPrice(item, true);
-            if (customer.hasItemInKit("sword")&&customer.getGold()<cost){
-                System.out.println("Well, you don't have the gold, but I can ignore that requirement. Here, take the "+item+". May it serve you well.");
+            if (customer.hasItemInKit("sword")){
+                System.out.println("Oh, so that's how things are. Alright, sorry. Here, take the "+item+". May it serve you well.");
                 customer.addItem(item);
             } else if (item.equals("sword")&&TreasureHunter.secretMode) {
                 System.out.println("Would you like the sword?");

@@ -39,7 +39,9 @@ public class Town {
     }
 
     public String getLatestNews() {
-        return printMessage;
+        String message=printMessage;
+        printMessage="";
+        return message;
     }
 
     /**
@@ -105,7 +107,7 @@ public class Town {
         if (Math.random() > noTroubleChance) {
             printMessage = "You couldn't find any trouble";
         } else {
-            printMessage = "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n";
+            printMessage = Colors.RED+"You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n";
             int goldDiff = (int) (Math.random() * 10) + 1;
             if (hunter.hasItemInKit("sword")){
                 printMessage += "Whoa, stranger! Watch where you swing that thing. Here, take my gold. *They back away slowly*";
@@ -113,16 +115,16 @@ public class Town {
                 printMessage += "\nYour sword has intimidated them into giving up " + Colors.YELLOW + goldDiff + Colors.RESET + " gold.";
                 hunter.changeGold(goldDiff);
             } else if (Math.random() > noTroubleChance) {
-                printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
+                printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold."+Colors.RESET;
                 printMessage += "\nYou won the brawl and receive " + Colors.YELLOW + goldDiff + Colors.RESET + " gold.";
                 hunter.changeGold(goldDiff);
             } else {
                 printMessage += "That'll teach you to go lookin' fer trouble in MY town! Now pay up!";
-                printMessage += "\nYou lost the brawl and pay " + goldDiff + " gold.";
+                printMessage += "\nYou lost the brawl and pay " + Colors.YELLOW+goldDiff+Colors.RESET + " gold.";
                 hunter.changeGold(-goldDiff);
                 if (hunter.getGold()<0) {
-                    System.out.println(printMessage+"\nYou attempt to, but cannot pay the fine. You will be imprisoned" +
-                            " until your debts are paid.");
+                    printMessage+="\nYou attempt to, but cannot pay the fine. You will be imprisoned" +
+                            " until your debts are paid.";
                     System.exit(0);
                 }
             }
@@ -171,7 +173,7 @@ public class Town {
     }
 
     private void treasureAssign(){
-        String[] options={"crown", "trophy", "gem", "gust"};
+        String[] options={"crown", "trophy", "gem", "dust"};
         treasure=options[(int)(Math.random()*4)];
     }
 

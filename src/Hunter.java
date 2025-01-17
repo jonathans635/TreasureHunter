@@ -135,10 +135,12 @@ public class Hunter {
                 printableKit += Colors.PURPLE + item + Colors.RESET + space;
             }
         }
-        printableKit+="\n";
-        printableKit+="treasures: ";
-        for (String x:treasures){
-            printableKit+= Colors.PURPLE+x+Colors.RESET+" ";
+        if (!treasures[0].isEmpty()) {
+            printableKit += "\n";
+            printableKit += "treasures: ";
+            for (String x : treasures) {
+                printableKit += Colors.PURPLE + x + Colors.RESET + " ";
+            }
         }
         return printableKit;
     }
